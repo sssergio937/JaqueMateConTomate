@@ -1,6 +1,7 @@
 #include "Pieza.h"
 #include "Tablero.h"
 
+int b = 9;
 
 
 //MOVIMIENTOS COMUNES EN TABLERO 5x5
