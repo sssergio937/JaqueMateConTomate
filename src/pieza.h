@@ -1,3 +1,6 @@
+#pragma once
+
+/*
 
 #include <string>
 #include <iostream>
@@ -42,3 +45,5 @@ protected:
 	Sprite imagen;
 
 };
+
+*/
