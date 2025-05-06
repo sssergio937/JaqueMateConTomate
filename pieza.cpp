@@ -1,8 +1,6 @@
 #include "Pieza.h"
 #include "Tablero.h"
 
-
-
 //MOVIMIENTOS COMUNES EN TABLERO 5x5
 bool Pieza::movimiento_valido(casilla inicio, casilla fin, Tablero& celda)
 {
