@@ -1,6 +1,3 @@
-#pragma once
-
-/*
 
 #include <string>
 #include <iostream>
@@ -21,7 +18,7 @@ public:
 	//color de la pieza
 	enum COLOR { NS = -1, BLANCA, NEGRA };
 	//tipo de la pieza
-	enum TIPO { NF = -1, PEON, CABALLO, REINA, REY, TORRE };
+	enum TIPO { NF = -1, PEON, CABALLO, REINA, REY, TORRE, ALFIL };
 
 	Pieza(COLOR c, TIPO p, const char* im_b, const char* im_n) :
 		color(c),
@@ -45,5 +42,3 @@ protected:
 	Sprite imagen;
 
 };
-
-*/
