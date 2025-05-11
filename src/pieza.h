@@ -1,12 +1,11 @@
 #pragma once
 
-/*
-
 #include <string>
 #include <iostream>
 #include "ETSIDI.h"
 #include <freeglut.h>
 #include "casilla.h"
+#include "vector2D.h"
 
 using namespace ETSIDI;
 
@@ -19,14 +18,16 @@ class Pieza
 
 public:
 	//color de la pieza
-	enum COLOR { NS = -1, BLANCA, NEGRA };
+	enum COLOR { NS = -1, VERDE, ROJO };
 	//tipo de la pieza
-	enum TIPO { NF = -1, PEON, CABALLO, REINA, REY, TORRE };
+	enum TIPO { NF = -1, PEON, CABALLO, REINA, REY, TORRE, ALFIL };
+
+	//Vector2D posicion; //posicion de la pieza
 
 	Pieza(COLOR c, TIPO p, const char* im_b, const char* im_n) :
 		color(c),
 		tipo(p),
-		imagen(c == BLANCA ? im_b : im_n)// si es la pieza blanca se le mete la imagen blanca, si no la negra
+		imagen(c == VERDE ? im_b : im_n)// si es la pieza verde se le mete la imagen verde, si no la roja
 	{
 		imagen.setCenter(0.4, 0.4);
 		imagen.setSize(0.8, 0.8);
@@ -35,7 +36,7 @@ public:
 
 	TIPO getPieza() { return tipo; }
 	COLOR getColor() { return color; }
-	virtual bool movimiento_valido(casilla inicio, casilla fin, Tablero& celda);
+	//virtual bool movimiento_valido(casilla inicio, casilla fin, Tablero& celda);
 
 	virtual void dibuja() { imagen.draw(); }
 
@@ -46,4 +47,3 @@ protected:
 
 };
 
-*/
