@@ -21,8 +21,7 @@ public:
 	enum COLOR { NS = -1, VERDE, ROJO };
 	//tipo de la pieza
 	enum TIPO { NF = -1, PEON, CABALLO, REINA, REY, TORRE, ALFIL };
-
-	//Vector2D posicion; //posicion de la pieza
+	Vector2D posicion; //posicion de la pieza
 
 	Pieza(COLOR c, TIPO p, const char* im_b, const char* im_n) :
 		color(c),
