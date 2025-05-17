@@ -50,7 +50,6 @@ void OnDraw(void)
 	glLoadIdentity();
 	
 	mundo.dibuja();
-	caballoverde.dibuja();
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();

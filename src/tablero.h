@@ -8,5 +8,6 @@ private:
 public:
 	Tablero(int f, int c, float l);
 	void dibuja();
+	int getPieza{ return filas,columnas };
 };
 

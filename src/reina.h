@@ -2,5 +2,9 @@
 #include "pieza.h"
 class Reina : public Pieza
 {
+public:
+	Reina(COLOR c, TIPO t, const char* im_b, const char* im_n)
+		: Pieza(c, t, im_b, im_n) {
+	}
 };
 

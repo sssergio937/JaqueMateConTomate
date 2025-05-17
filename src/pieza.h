@@ -7,7 +7,7 @@
 #include "casilla.h"
 #include "vector2D.h"
 
-using namespace ETSIDI;
+//using namespace ETSIDI;
 
 class Tablero;
 
@@ -28,21 +28,23 @@ public:
 		tipo(p),
 		imagen(c == VERDE ? im_b : im_n)// si es la pieza verde se le mete la imagen verde, si no la roja
 	{
-		imagen.setCenter(0.4, 0.4);
-		imagen.setSize(0.8, 0.8);
+		imagen.setCenter(static_cast<float>(0.4), static_cast<float>(0.4)); 
+		imagen.setSize(0.8f, 0.8f);
 		imagen.draw();
 	};
 
 	TIPO getPieza() { return tipo; }
 	COLOR getColor() { return color; }
-	//virtual bool movimiento_valido(casilla inicio, casilla fin, Tablero& celda);
 
-	virtual void dibuja() { imagen.draw(); }
+	virtual bool movimiento_valido(Casilla inicio, Casilla fin, Tablero& celda);
+
+	//virtual void dibuja() { imagen.draw(); }
+	virtual void dibuja();
 
 protected:
 	TIPO tipo = NF;
 	COLOR color = NS;
-	Sprite imagen;
+	ETSIDI::Sprite imagen;
 
 };
 

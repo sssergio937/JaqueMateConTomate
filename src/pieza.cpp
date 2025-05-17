@@ -1,12 +1,11 @@
-/*
-
 #include "Pieza.h"
 #include "Tablero.h"
+#include "casilla.h"
 
 
 
 //MOVIMIENTOS COMUNES EN TABLERO 5x5
-bool Pieza::movimiento_valido(casilla inicio, casilla fin, Tablero& celda)
+bool Pieza::movimiento_valido(Casilla inicio, Casilla fin, Tablero& celda)
 {
 	int aux;
 
@@ -18,7 +17,8 @@ bool Pieza::movimiento_valido(casilla inicio, casilla fin, Tablero& celda)
 		while (abs(fin.fila - inicio.fila) > 1)
 		{
 			inicio.fila = inicio.fila + aux;
-			if (celda[inicio] != nullptr) return false;
+			//if (celda[inicio] != nullptr) return false;
+			if (celda.getPieza(inicio) != nullptr) return false;//chatgpt
 		}
 	}
 
@@ -29,12 +29,13 @@ bool Pieza::movimiento_valido(casilla inicio, casilla fin, Tablero& celda)
 		while (abs(fin.columna - inicio.columna) > 1)
 		{
 			inicio.columna = inicio.columna + aux;
-			if (celda[inicio] != nullptr) return false;
+			//if (celda[inicio] != nullptr) return false;
+			if (celda.getPieza(inicio) != nullptr) return false;//chatgpt
 		}
 	}
 
 	//DIAGONAL DE IZQUIERDA A DERECHA
-	else if (casilla::noSaltarDiagonal(inicio, fin) == true)
+	else if (Casilla::noSaltarDiagonal(inicio, fin) == true)
 	{
 		aux = (fin.columna - inicio.columna) / abs(fin.columna - inicio.columna);
 		while (abs(fin.columna - inicio.columna) > 1)
@@ -42,6 +43,7 @@ bool Pieza::movimiento_valido(casilla inicio, casilla fin, Tablero& celda)
 			inicio.columna = inicio.columna + aux;
 			inicio.fila = inicio.fila + aux;
 			if (celda[inicio] != nullptr) return false;
+			//if (celda.getPieza(inicio) != nullptr) return false;//chatgpt
 		}
 	}
 
@@ -54,10 +56,14 @@ bool Pieza::movimiento_valido(casilla inicio, casilla fin, Tablero& celda)
 			inicio.columna = inicio.columna + aux;
 			inicio.fila = inicio.fila - aux;
 			if (celda[inicio] != nullptr) return false;
+			//if (celda.getPieza(inicio) != nullptr) return false;//chatgpt
 		}
 	}
 
 	return true; // movimiento valido
 }
 
-*/
+void Pieza::dibuja() {
+	imagen.setPos(posicion.x, posicion.y);
+	imagen.draw();
+}
