@@ -19,19 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\modo.cpp" />
+    <ClCompile Include="src\coordinador.cpp" />
     <ClCompile Include="src\mundo.cpp" />
-    <ClCompile Include="src\pang.cpp" />
+    <ClCompile Include="src\matecontomate.cpp" />
     <ClCompile Include="src\pieza.cpp" />
     <ClCompile Include="src\tablero.cpp" />
-    <ClCompile Include="src\vector2D.cpp" />
+    <ClCompile Include="src\casillas.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\modo.h" />
+    <ClInclude Include="src\coordinador.h" />
     <ClInclude Include="src\mundo.h" />
     <ClInclude Include="src\pieza.h" />
     <ClInclude Include="src\tablero.h" />
-    <ClInclude Include="src\vector2D.h" />
+    <ClInclude Include="src\casillas.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
