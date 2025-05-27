@@ -2,12 +2,17 @@
 #include "freeglut.h"
 #include "mundo.h"
 #include "ETSIDI.h"
+#include <iostream>
 
 class Coordinador
 {
 private:
 	enum Estado { INICIO, FADE_IN, PEDIR_DATOS, RANKING, CREDITOS, AJUSTES, JUEGO1J, JUEGO2J, MENU, FIN } estado{};		//	 estados del juego, se crea una variable de tipo Estado con valor INICIO
 	Mundo mundo;
+	
+	// seleccion de jugadores y variante
+	bool variante = 0;						// 0 -> ajedrez baby   1 -> ajedrez gardner
+	bool jugadores = 0;						// 0 -> 1Jugador   2 -> 2Jugadores
 
 	// para la seleccion dentro del menu
 	int seleccionMenu = 0;
@@ -33,5 +38,6 @@ public:
 	void tecla(unsigned char key);
 	void mueve();
 	void inicializa();
+
 };
 

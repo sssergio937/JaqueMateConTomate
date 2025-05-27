@@ -7,6 +7,8 @@ void Coordinador::inicializa()
 	transicionSonidoReproducido = false;
 }
 
+
+
 void Coordinador::dibuja()
 {
 	switch (estado) {
@@ -58,10 +60,47 @@ void Coordinador::dibuja()
 				ETSIDI::setTextColor(1, 1, 1);
 			ETSIDI::setFont("fuentes/Roboto.ttf", 22);
 			ETSIDI::printxy(opcionesMenu[i], -20, 15 - i * 3);
+			
+			// impresion de la variable actual
 			ETSIDI::setTextColor(1, 1, 1);
+			if (variante == 0)
+				ETSIDI::printxy("AJEDREZ BABY", -20, -8);
+			else
+				ETSIDI::printxy("AJEDREZ GARDNER", -20, -8);
 			ETSIDI::setFont("fuentes/Roboto.ttf", 14);
 			ETSIDI::printxy("W y S para navegar por el menú", 8, -14);
 			ETSIDI::printxy("ENTER para seleccionar", 8, -16);
+		
+		// boton del cambio de variante
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/cambio_variante.png").id);
+			glDisable(GL_LIGHTING);
+			glBegin(GL_POLYGON);
+			glColor3f(1, 1, 1);
+			glTexCoord2d(0, 1); glVertex2f(-4, -13);   // inferior izquierda
+			glTexCoord2d(1, 1); glVertex2f(4, -13);    // inferior derecha
+			glTexCoord2d(1, 0); glVertex2f(4, -2);     // superior derecha
+			glTexCoord2d(0, 0); glVertex2f(-4, -2);    // superior izquierda
+			glEnd();
+			glEnable(GL_LIGHTING);
+			glDisable(GL_TEXTURE_2D);
+
+		// poner foto en funcion de la variante elegida
+			glEnable(GL_TEXTURE_2D);
+			if(variante == 0)
+				glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/variante_baby.png").id);
+			else
+				glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/variante_gardner.png").id);
+			glDisable(GL_LIGHTING);
+			glBegin(GL_POLYGON);
+			glColor3f(1, 1, 1);
+			glTexCoord2d(0, 1); glVertex2f(8, 0);   // inferior izquierda
+			glTexCoord2d(1, 1); glVertex2f(20, 0);    // inferior derecha
+			glTexCoord2d(1, 0); glVertex2f(20, 12);     // superior derecha
+			glTexCoord2d(0, 0); glVertex2f(8, 12);    // superior izquierda
+			glEnd();
+			glEnable(GL_LIGHTING);
+			glDisable(GL_TEXTURE_2D);
 		}
 		break;
 	case RANKING:
@@ -162,6 +201,10 @@ void Coordinador::tecla(unsigned char key)
 			else if (seleccionMenu == 4) estado = CREDITOS;
 			else if (seleccionMenu == 5) exit(0);
 		}
+		
+		// cambio de la variante elegida
+		if (key == 118 || key == 86)
+			variante = !variante;
 		break;
 
 	// funcionalidad de las teclas cuando estamos en estado AJUSTES
@@ -221,3 +264,5 @@ void Coordinador::mueve()
 		}
 	}
 }
+
+
