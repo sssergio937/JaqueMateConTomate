@@ -17,7 +17,7 @@ void Coordinador::dibuja()
 		// imagen del fondo, que se situa en la altura z = 0
 		glClearColor(0.212, 0.212, 0.212, 1);						// se establece 1 vez el color con el que se va a limpiar la pantalla, el de fondo
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Inicio_Juego.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/imagen_inicio2.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
 		glColor3f(0.9, 1, 1);
@@ -29,7 +29,16 @@ void Coordinador::dibuja()
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
 
-		// texto de la pantalla de inicio
+		// texto de la pantalla de inicio, dentro de un rectangulo para que se vea
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glVertex3f(-11, -16.5, 0.1);
+		glVertex3f(13.5, -16.5, 0.1);
+		glVertex3f(13.5, -12.5, 0.1);
+		glVertex3f(-11, -12.5, 0.1);
+		glEnd();
+		glEnable(GL_LIGHTING);
 		ETSIDI::setTextColor(0, 0, 0);
 		ETSIDI::setFont("fuentes/Roboto.ttf", 22);
 		ETSIDI::printxy("Pulsa ENTER para comenzar...", -10, -15);
