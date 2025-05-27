@@ -68,8 +68,9 @@ void Coordinador::dibuja()
 			else
 				ETSIDI::printxy("AJEDREZ GARDNER", -20, -8);
 			ETSIDI::setFont("fuentes/Roboto.ttf", 14);
-			ETSIDI::printxy("W y S para navegar por el menú", 8, -14);
-			ETSIDI::printxy("ENTER para seleccionar", 8, -16);
+			ETSIDI::printxy("W y S para navegar por el menú", 8, -12);
+			ETSIDI::printxy("ENTER para seleccionar", 8, -14);
+			ETSIDI::printxy("V para cambiar la variante", 8, -16);
 		
 		// boton del cambio de variante
 			glEnable(GL_TEXTURE_2D);
