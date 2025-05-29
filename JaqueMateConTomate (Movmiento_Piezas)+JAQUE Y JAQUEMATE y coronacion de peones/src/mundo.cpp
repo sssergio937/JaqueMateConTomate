@@ -175,6 +175,15 @@ void Mundo::clickRaton(int x, int y)
         // SEGUNDO CLIC: intentar mover la pieza previamente seleccionada
         Casilla destino(fila, columna);
         Pieza* seleccionadaPieza = tablero.getPieza(seleccionada.fila, seleccionada.columna);
+        Pieza* destinoPieza = tablero.getPieza(fila, columna);
+
+        // --- IMPEDIR CAPTURAR TU PROPIO REY ---
+        if (destinoPieza && destinoPieza->getColor() == seleccionadaPieza->getColor() && destinoPieza->getPieza() == Pieza::REY) {
+            strcpy(mensaje, "No puedes capturar tu propio rey");
+            haySeleccion = false;
+            glutPostRedisplay();
+            return;
+        }
 
         if (seleccionadaPieza && seleccionadaPieza->movimiento_valido(seleccionada, destino, tablero))
         {

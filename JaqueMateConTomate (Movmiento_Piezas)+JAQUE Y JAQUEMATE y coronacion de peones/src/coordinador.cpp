@@ -260,6 +260,18 @@ void Coordinador::tecla(unsigned char key)
 	// funcionalidad de las teclas cuando estamos en estado FIN
 	case FIN:
 		// codigo de entrada por teclado para la pantalla de fin
+		 // Fondo oscuro
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// Dibuja el mensaje centrado
+		ETSIDI::setTextColor(1, 0, 0); // Rojo
+		ETSIDI::setFont("fuentes/Roboto.ttf", 32);
+		ETSIDI::printxy("JAQUE MATE CON TOMATE", -15, 0);
+
+		ETSIDI::setTextColor(1, 1, 1); // Blanco
+		ETSIDI::setFont("fuentes/Roboto.ttf", 18);
+		ETSIDI::printxy("Pulsa ESC para volver al menu", -10, -5);
 		break;
 
 	}
