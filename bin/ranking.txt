@@ -1,0 +1,8 @@
+mario 10 3
+sergio 4 2
+oscar 10 3
+SanSegundo 1000 3
+diego 6 3
+calde 14 1
+marta 1 1
+pedro 1 1

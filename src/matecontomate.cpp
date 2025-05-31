@@ -9,7 +9,7 @@ Coordinador coordinador; //centralizamos la información en este objeto
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
-void raton_callback(int button, int state, int x, int y); //cuando se utilice el raton
+void OnMouseClick(int button, int state, int x, int y);
 
 int main(int argc,char* argv[])
 {
@@ -31,6 +31,7 @@ int main(int argc,char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25,OnTimer,0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
+	glutMouseFunc(OnMouseClick);
 
 	//inicializacion de clase coordinador
 	coordinador.inicializa();
@@ -74,9 +75,9 @@ void OnTimer(int value)
 	glutTimerFunc(25,OnTimer,0);
 	glutPostRedisplay();
 }
-
-void raton_callback(int button, int state, int x, int y) 
+void OnMouseClick(int button, int state, int x, int y) 
 {
-	// coordinador.raton(button, state, x, y);
-	glutPostRedisplay();
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+		coordinador.clickRaton(x, y); // Llama a función del coordinador
+	}
 }
